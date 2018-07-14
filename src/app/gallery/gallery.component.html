@@ -1,0 +1,31 @@
+<p></p>
+<div class="container">
+
+  <div class="panel panel-danger">
+
+    <div class="panel-heading">
+      Gallery Component
+    </div>
+    <div class="panel-body">
+      <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
+        <div class="form-group">
+          <label class="control-label">Message</label>
+          <input required="" class="form-control" type="text" name="keyword" ngModel />
+          <button [disabled]="!f.valid" class="btn btn-primary" type="submit">Envoyer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+    <div class="row">
+      <div *ngFor="let hit of pagePhotos?.hits" class="col-md-4">
+        <div class="panel panel-primary">
+          <div class="panel-heading">{{hit.tags}}</div>
+          <div class="panel-body">
+            <img src="{{hit.previewURL}}" class="img-thumbnail size"/>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</div>
